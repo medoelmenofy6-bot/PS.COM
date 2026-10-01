@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 3 82% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 62%;
+    --accent: 3 82% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 18%;
+    --ring: 3 82% 52%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 3 82% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 3 82% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* ============ Parkour Samurai design system ============ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background-color: #060606;
+    color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: #d61f26;
+    color: #fff;
+  }
+}
+
+.font-brush {
+  font-family: "Shojumaru", "Inter", system-ui, cursive;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Red ink-brush tag (section labels) — skewed rough-edged chip */
+.brush-tag {
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 1.1rem;
+  color: #fff;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #e0252c 0%, #c1171f 60%, #a80f17 100%);
+  clip-path: polygon(
+    3% 12%, 12% 4%, 30% 8%, 55% 2%, 78% 7%, 96% 3%, 100% 22%, 98% 48%,
+    100% 74%, 95% 92%, 76% 97%, 52% 93%, 28% 99%, 9% 94%, 0% 82%, 2% 50%
+  );
+  transform: rotate(-1.2deg);
+  white-space: nowrap;
+}
+
+/* Red brush-stroke button */
+.brush-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.4rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  background: linear-gradient(100deg, #e0252c 0%, #c1171f 55%, #a80f17 100%);
+  clip-path: polygon(
+    2% 18%, 10% 6%, 32% 10%, 58% 3%, 82% 8%, 98% 4%, 100% 26%, 98.5% 50%,
+    100% 76%, 94% 94%, 74% 98%, 48% 94%, 22% 99%, 6% 93%, 0% 78%, 1.5% 46%
+  );
+  transition: transform 0.18s ease, filter 0.18s ease;
+  min-height: 44px;
+}
+.brush-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+.brush-btn:active {
+  transform: translateY(1px);
+}
+.brush-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+
+/* Outlined pill button (header CTA, secondary actions) */
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  min-height: 44px;
+  border: 1.5px solid #e0252c;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(224, 37, 44, 0.06);
+  transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+.pill-btn:hover {
+  background: rgba(224, 37, 44, 0.18);
+  box-shadow: 0 0 24px rgba(224, 37, 44, 0.35);
+}
+.pill-btn-solid {
+  background: linear-gradient(100deg, #e0252c, #b3141c);
+  border-color: transparent;
+}
+.pill-btn-solid:hover {
+  background: linear-gradient(100deg, #f02c33, #c1171f);
+}
+
+/* Giant decorative kanji watermark */
+.kanji-mark {
+  font-family: "Shojumaru", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  color: #d61f26;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 0 40px rgba(214, 31, 38, 0.35);
+}
+
+/* Card base */
+.ink-card {
+  background: linear-gradient(160deg, #101012 0%, #0a0a0b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ink-card:hover {
+  border-color: rgba(224, 37, 44, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* Icon ring used in feature rows */
+.icon-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 2px solid rgba(224, 37, 44, 0.75);
+  color: #e0252c;
+  background: rgba(224, 37, 44, 0.08);
+  box-shadow: inset 0 0 18px rgba(224, 37, 44, 0.18);
+}
+
+/* Dark filter for the embedded map */
+.dark-map {
+  filter: invert(0.92) hue-rotate(185deg) saturate(0.35) brightness(0.9) contrast(1.05);
+  border: 0;
+}
+
+/* Thin horizontal rule with fade */
+.ink-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(224, 37, 44, 0.55), transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2c;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d61f26;
+}
